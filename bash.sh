@@ -6,7 +6,7 @@
 sudo apt install docker.io docker-compose wget curl git ffmpeg -y
 sudo apt-get update && \
   sudo apt-get install -y dotnet-sdk-8.0
-
+sudo snap install rocketchat-server
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt full-upgrade -y
@@ -33,12 +33,12 @@ cd jellyfin                          # Move into the repository directory
 dotnet run --project Jellyfin.Server --webdir /absolute/path/to/jellyfin-web/dist # Run the server startup project
 dotnet build                       # Build the project
 cd Jellyfin.Server/bin/Debug/net8.0 # Change into the build output directory
-
+Cd
 
 #brew
 echo installing brew - beer
 git clone https://github.com/CooperDActor/hot-brewer homebrew
-
+cd homebrew
 eval "$(homebrew/bin/brew shellenv)"
 
 brew update --force --quiet
