@@ -3,7 +3,9 @@
 
 #install dependiencies
 
-sudo apt install docker.io docker-compose wget curl git -y
+sudo apt install docker.io docker-compose wget curl git ffmpeg -y
+sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-8.0
 
 sudo apt update -y
 sudo apt upgrade -y
@@ -26,8 +28,11 @@ cd
 docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
 
 #the fin
-wget https://syd1.mirror.jellyfin.org/files/server/debian/stable/v10.9.9/amd64/jellyfin-server_10.9.9+deb11_amd64.deb
-sudo dpkg -i jellyfin-server_10.9.9+deb11_amd64.deb
+git clone https://github.com/jellyfin/jellyfin.git
+cd jellyfin                          # Move into the repository directory
+dotnet run --project Jellyfin.Server --webdir /absolute/path/to/jellyfin-web/dist # Run the server startup project
+dotnet build                       # Build the project
+cd Jellyfin.Server/bin/Debug/net8.0 # Change into the build output directory
 
 
 #brew
