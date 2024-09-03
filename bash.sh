@@ -44,7 +44,7 @@ eval "$(homebrew/bin/brew shellenv)"
 brew update --force --quiet
 
 chmod -R go-w "$(brew --prefix)/share/zsh"
-
+cd
 #flare
 curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && 
 
